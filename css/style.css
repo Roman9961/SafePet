@@ -40,8 +40,8 @@ p {
 -----------------------------------------*/
 
 .section_title {
-    padding-top: 90px;
-    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 .section_title h2 {
     text-transform: uppercase;
@@ -57,7 +57,7 @@ p {
     bottom: -20px;
     width: 60px;
     height: 1px;
-    background-color: #f39c12;
+    background-color: #feda44;
     left: 50%;
     margin-left: -30px;
 }
@@ -91,6 +91,13 @@ p {
     padding: 9px 15px;
 }
 @media(min-width:768px) {
+    .pawprint{
+        background: url('../images/pawprint.svg')no-repeat;
+        height: 65px;
+        width: 65px;
+        display: block;
+        margin: 25px 0;
+    }
     .navbar-default {
         background-color: transparent;
     }
@@ -100,7 +107,7 @@ p {
         font-family: 'Raleway', sans-serif;
     }
     .navbar-default .navbar-nav>li>a:hover {
-        color: #f39c12;
+        color: #feda44;
     }
     .navbar-default .navbar-nav>li>a:focus {
         color: #B5B5B5;
@@ -139,10 +146,10 @@ p {
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
     background: transparent;
-    color: #f39c12;
+    color: #feda44;
 }
 .header {
-    background: url(../images/home.jpg);
+    background: url(../images/fon.jpg);
     background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -150,7 +157,18 @@ p {
     background-color: rgba(33, 33, 33, .75);
 }
 .logo{
-    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+.headerLogo{
+    background: url(../images/logo_safepet-01.svg) no-repeat center center white;
+    width: 65px;
+    height:65px;
+}
+.headerLogoBig{
+    background: url(../images/logo_safepet-01.svg) no-repeat center center white;
+    width: 120px;
+    height:120px;
 }
 .home_text{
     text-align: left;
@@ -161,7 +179,10 @@ p {
 .home-iphone img{
     width: 100%;
 }
-
+.owl-wrapper{
+    display: flex !important;
+    align-items: center;
+}
 @media (max-width: 768px){
     .home-iphone{
         display: none;
@@ -187,7 +208,7 @@ p {
     font-weight: 300;
 }
 .download-btn {
-    margin-top: 90px;
+    margin-top: 65px;
     margin-bottom: 50px
 }
 .home-btn,
@@ -195,8 +216,8 @@ p {
 .home-btn:active,
 .home-btn:visited {
     background: transparent;
-    border-color: #f39c12;
-    color: #f39c12;
+    border-color: #feda44;
+    color: #feda44;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 30px;
@@ -210,7 +231,7 @@ p {
     transition: all 1s;
 }
 .home-btn:hover {
-    background-color: #f39c12;
+    background-color: #feda44;
     color: #fff;
 }
 .tuor,
@@ -234,7 +255,7 @@ p {
 .tuor i {
     font-size: 20px;
     padding-left: 5px;
-    color: #f39c12;
+    color: #feda44;
 }
 
 
@@ -267,7 +288,7 @@ p {
     bottom: -12px;
     left: 0;
     width: 70px;
-    background: #f39c12;
+    background: #feda44;
     height: 1px;
 }
 .inner_about_title p {
@@ -304,7 +325,7 @@ p {
     font-size: 15px;
 }
 .single_about_area:hover div i {
-    color: #f39c12;
+    color: #feda44;
 }
 .about_phone img {} @media (min-width: 991px) and (max-width: 1200px) {
     .about_phone img {
@@ -339,7 +360,7 @@ p {
     bottom: -12px;
     left: 0;
     width: 70px;
-    background: #f39c12;
+    background: #feda44;
     height: 1px;
 }
 .video_title p {
@@ -365,9 +386,9 @@ p {
     transition: all 1s;
 }
 .btn-video:hover {
-    background: #f39c12;
+    background: #feda44;
     color: #fff;
-    border: 1px solid #f39c12;
+    border: 1px solid #feda44;
 }
 .video {} .video iframe {
     width: 100%;
@@ -402,7 +423,7 @@ p {
     bottom: -8px;
 }
 div.carousel-inner .item img {
-    border: 2px solid #f39c12;
+    border: 2px solid #feda44;
     border-radius: 50%;
     padding: 3px;
 }
@@ -416,14 +437,14 @@ div.carousel-inner .item img {
     padding-top: 50px;
 }
 .testimonial_caption h2 {
-    color: #f39c12;
+    color: #feda44;
     text-transform: uppercase;
     font-weight: 900;
     font-size: 30px;
     margin-top: 25px;
 }
 .testimonial_caption h4 {
-    color: #f39c12
+    color: #feda44
 }
 .testimonial_caption h4 span {
     color: #D8D8D8;
@@ -433,14 +454,14 @@ div.carousel-inner .item img {
 .testimonial ol.carousel-indicators li {
     width: 12px;
     height: 12px;
-    border: 1px solid #f39c12;
+    border: 1px solid #feda44;
     margin: 1PX
 }
 .testimonial ol.carousel-indicators li.active {
     width: 12px;
     height: 12px;
-    border: 0px solid #f39c12;
-    background: #f39c12;
+    border: 0px solid #feda44;
+    background: #feda44;
 }
 /*---------------------------------------
    SECTION FEATURES              
@@ -451,7 +472,7 @@ div.carousel-inner .item img {
 }
 .feature_inner {
     padding-top: 30px;
-    padding-bottom: 70px;
+    /*padding-bottom: 70px;*/
 }
 .feature_iphone {} .feature_iphone img {
     width: 100%;
@@ -465,7 +486,7 @@ div.carousel-inner .item img {
 .right_single_feature div {
     position: absolute;
     font-size: 40px;
-    color: #f39c12;
+    color: #feda44;
     left: 0;
     width: 90px;
     height: 90px;
@@ -480,7 +501,7 @@ div.carousel-inner .item img {
     color: #333333;
 }
 .right_single_feature h3 span {
-    color: #f39c12;
+    color: #feda44;
 }
 .right_single_feature p {
     color: #333;
@@ -497,10 +518,65 @@ div.carousel-inner .item img {
     text-align: right;
     margin-top: 35px;
 }
+.shield{
+    background: url('../images/shield.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+}
+.no-erase{
+    background: url('../images/no-erase.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+    margin: 0 20px;
+}
+
+.dog-leads{
+    background: url('../images/dog-leads.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+}
+.idea{
+    background: url('../images/idea.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+    margin: 0 20px;
+}
+.measuring{
+    background: url('../images/measuring-tape.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+    margin: 15px 20px;
+}
+.wanted{
+    background: url('../images/wanted.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+    margin: 15px 20px;
+}
+.leash{
+    background: url('../images/leash.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+    margin: 55px 0;
+}
+.pawprint{
+    background: url('../images/pawprint.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+
+}
 .left_single_feature div {
     position: absolute;
     font-size: 40px;
-    color: #f39c12;
+    color: #feda44;
     right: 0;
     width: 90px;
     height: 90px;
@@ -515,7 +591,7 @@ div.carousel-inner .item img {
     color: #333333;
 }
 .left_single_feature h3 span {
-    color: #f39c12;
+    color: #feda44;
 }
 .left_single_feature p {
     color: #333;
@@ -565,8 +641,8 @@ div.carousel-inner .item img {
 .btn-action:active,
 .btn-action:focus,
 .btn-action:visited {
-    background: #f39c12;
-    border: 1px solid #f39c12;
+    background: #feda44;
+    border: 1px solid #feda44;
     color: #fff;
     border-radius: 3px;
     padding: 15px 35px;
@@ -587,7 +663,7 @@ div.carousel-inner .item img {
 
 .apps_screen {
     background: #f1f1f1;
-    padding-bottom: 96px;
+    /*padding-bottom: 96px;*/
 }
 .screen_slider {
     padding-top: 50px;
@@ -603,12 +679,12 @@ div.carousel-inner .item img {
     -moz-border-radius: 20px;
     border-radius: 20px;
     background: transparent;
-    border: 1px solid #f39c12;
+    border: 1px solid #feda44;
 }
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span {
     opacity: 1;
-    background: #f39c12;
+    background: #feda44;
 }
 /*---------------------------------------
    SECTION FUN FACTS              
@@ -627,7 +703,7 @@ div.carousel-inner .item img {
     font-family: 'Source Sans Pro', sans-serif;
 }
 .single_fun_facts i {
-    color: #f39c12;
+    color: #feda44;
     font-size: 60px;
     ;
 }
@@ -692,7 +768,7 @@ div.carousel-inner .item img {
     transition: all 1s;
 }
 .single_store i {
-    color: #f39c12;
+    color: #feda44;
     text-align: center;
     opacity: 1;
     font-size: 40px;
@@ -742,6 +818,7 @@ div.carousel-inner .item img {
     background: #f1f1f1;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 50px;
 }
 .contact_form {
     padding-top: 30px;
@@ -769,8 +846,8 @@ div.carousel-inner .item img {
 
 }
 .contact_form .form-control:focus {
-    border: 1px solid #f39c12;
-    border-color: #f39c12;
+    border: 1px solid #feda44;
+    border-color: #feda44;
     outline: 0px none;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.075) inset, 0px 0px 0px rgba(102, 175, 233, 0.6);
 }
@@ -795,13 +872,13 @@ div.carousel-inner .item img {
 .submit-btn:focus,
 .submit-btn:visited {
     background-color: transparent;
-    border: 1px solid #f39c12;
+    border: 1px solid #feda44;
     border-radius: 4px;
     width: 100%;
     height: 50px;
     text-transform: uppercase;
     font-size: 18px;
-    color: #f39c12;
+    color: #feda44;
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
     -o-transition: all 1s;
@@ -809,9 +886,9 @@ div.carousel-inner .item img {
     outline: 0px !important;
 }
 .submit-btn:hover {
-    background-color: #f39c12;
+    background-color: #feda44;
     color: #fff;
-    border-color: #f39c12;
+    border-color: #feda44;
 }
 .social_icons {
     padding-top: 50px;
@@ -846,12 +923,12 @@ div.carousel-inner .item img {
     font-size: 20px;
 }
 .social_icons ul li a:hover {
-    background: #f39c12;
-    border: 1px solid #f39c12;
+    background: #feda44;
+    border: 1px solid #feda44;
     color: #fff
 }
 .error {
-    color: #f39c12;
+    color: #feda44;
     display: block;
     padding-bottom: 15px;
     font-size: 18px
@@ -928,12 +1005,12 @@ div.carousel-inner .item img {
 .subs-btn:visited {
     width: 200px;
     background: transparent;
-    border: 1px solid #f39c12;
+    border: 1px solid #feda44;
     border-radius: 4px;
     height: 45px;
     margin-left: 0px;
     margin-bottom: 1px;
-    color: #f39c12;
+    color: #feda44;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 17px;
@@ -944,9 +1021,9 @@ div.carousel-inner .item img {
     outline: 0px !important;
 }
 .subs-btn:hover {
-    background-color: #f39c12;
+    background-color: #feda44;
     color: #fff;
-    border-color: #f39c12;
+    border-color: #feda44;
 }
 @media (min-width: 300px) {
     .subscribe_form .form-control {
@@ -971,7 +1048,7 @@ div.carousel-inner .item img {
     background-color: #1A1D22;
     padding-bottom: 65px;
     padding-top: 65px;
-    border-bottom: 3px solid #f39c12;
+    border-bottom: 3px solid #feda44;
 }
 .copyright h2 {
     height: 0px;
@@ -988,7 +1065,7 @@ div.carousel-inner .item img {
 }
 .copy_right_text p a {
     text-decoration: none;
-    color: #f39c12;
+    color: #feda44;
 }
 .copy_right_text p span {
     font-weight: 300;
@@ -997,7 +1074,7 @@ div.carousel-inner .item img {
     text-align: right;
 }
 .scroll_top a {
-    background: #f39c12;
+    background: #feda44;
     padding: 25px;
 }
 .scroll_top a i {
