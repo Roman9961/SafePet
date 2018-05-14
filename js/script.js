@@ -22,7 +22,7 @@ $(document).ready(function() {
                 'opacity': '1'
             })
             $(".navbar-nav>li>a").css({
-                'padding-top': '15px'
+                'padding-top': '15px',
             });
             $(".navbar-brand img").css({
                 'height': '35px'
@@ -225,7 +225,13 @@ $(document).ready(function() {
     $(".form_submit").click(function() {
 
         "use strict";
-        
+
+        var recaptcha = $("#g-recaptcha-response").val();
+        if (recaptcha === "") {
+            event.preventDefault();
+            $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
+        }
+
         var name = $("#name").val();
         var emaild = $("#email").val();
         var subject = $("#subject").val();
@@ -255,17 +261,19 @@ $(document).ready(function() {
         } else {
             $(".form_error .message_error").addClass("hide").removeClass("show");
         }
+
         if (name && emaild && message) {
             $.ajax({
                 url: 'contact.php',
                 data: {
                     name: name,
-                    emaild: emaild,
-                    subject: subject,
-                    message: message
+                    mail: emaild,
+                    subjectForm: subject,
+                    messageForm: message
                 },
                 type: 'POST',
                 success: function(data) {
+
                     $(".Sucess").show();
                     $(".Sucess").fadeIn(2000);
                     $(".Sucess").html("<i class='fa fa-check'></i> Dear <b>" + name + "</b> Thank you for your inquiry we will respond to you as soon as possible!");
@@ -273,7 +281,7 @@ $(document).ready(function() {
                     $("#Email").val("");
                     $("#Subject").val("");
                     $("#Message").val("");
-                    $(".form_error .name_error, .form_error .email_error, .form_error .email_val_error, .form_error .message_error").addClass("hide").removeClass("show");
+                    $(".form_error .name_error, .form_error .email_error, .form_error .email_val_error, .form_error .message_error, .form_error .recaptcha_val_error").addClass("hide").removeClass("show");
                     $("#name").val("");
                     $("#email").val("");
                     $("#subject").val("");
@@ -315,15 +323,3 @@ $(document).ready(function() {
 
 
 
-
-//VIDEO BACKGROUND
-$(document).ready(function() {
-  var videobackground = new $.backgroundVideo($('body'), {
-    "align": "centerXY",
-    "width": 1280,
-    "height": 720,
-    "path": "media/",
-    "filename": "cloud",
-    "types": ["mp4","ogg","webm"]
-  });
-});

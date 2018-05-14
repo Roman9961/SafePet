@@ -1,4 +1,6 @@
-<?php 
+<?php
+require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+
 
 //======================================================================
 // Variables
@@ -32,8 +34,17 @@ function check_email($email){
 }
 
 //Send mail
-function send_mail($to,$subject,$message,$headers){
-    if(@mail($to,$subject,$message,$headers)){
+function send_mail($to,$subject,$message,$name){
+    $mail = new PHPMailer(true);
+    $mail->IsHTML(true);
+    $mail->isSMTP();
+    $mail->Host = '127.0.0.1';
+    $mail->Port = 25;
+    $mail->setFrom('from@example.com', 'Mailer');
+    $mail->addAddress($to, $name);
+    $mail->Subject = $subject;
+    $mail->Body    = $message;
+    if($mail->send()){
         echo json_encode(array('info' => 'success', 'msg' => __SUCCESS_MESSAGE__));
     } else {
         echo json_encode(array('info' => 'error', 'msg' => __ERROR_MESSAGE__));
@@ -91,7 +102,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
         $headers .= 'From: ' . $mail . "\r\n";
 
-        send_mail($to,$subject,$message,$headers);
+        send_mail($to,$subject,$message,$name);
     }
 } else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));

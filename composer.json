@@ -1,0 +1,12 @@
+{
+    "name": "root/safe-pet",
+    "authors": [
+        {
+            "name": "Roman",
+            "email": "rromanishin@ucell.com.ua"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "5.2.26"
+    }
+}

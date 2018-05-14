@@ -90,6 +90,12 @@ p {
 .navbar-brand {
     padding: 9px 15px;
 }
+.container .navbar-nav>li>a{
+    color: white;
+}
+.navbar-default .navbar-nav>li>a:hover{
+    color:#feda44;
+}
 @media(min-width:768px) {
     .pawprint{
         background: url('../images/pawprint.svg')no-repeat;
@@ -185,7 +191,10 @@ p {
 }
 @media (max-width: 768px){
     .home-iphone{
-        display: none;
+        text-align: center;
+    }
+    .home-iphone .download-btn a{
+        margin: 10px;
     }
     .home_text{
         text-align: center;
