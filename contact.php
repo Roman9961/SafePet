@@ -99,6 +99,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
 
         $to = __TO__;
         $subject = 'Заказ №'.$id ;
+        $subjectClient = 'Ваша заявка №'.$id.' принята!';
         $storeMessage = '
         <html>
         <head>
@@ -182,7 +183,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
 
 
         send_mail($to,$subject,$storeMessage,$name);
-        send_mail($mail,$subject,$clientMessage,$name);
+        send_mail($mail,$subjectClient,$clientMessage,$name);
     }
 } else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));
