@@ -148,7 +148,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
 
         <p>Детали заказа:</p>
 
-        <p>Цвет: <span style="font-size: 20px; color:\''.$color.'\'">&#9632;</span></p>
+        <p>Цвет: <span style="font-size: 20px; color:'.$color.'">&#9632;</span></p>
         
         <p>Размер: '.$size.'</p>
         
