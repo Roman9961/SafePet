@@ -1,12 +1,9 @@
 <?php
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 require 'vendor/autoload.php';
-include_once ('vendor/pllano/json-db/src/Run.php');
 
-use jsonDB\Database as jsonDb;
-use jsonDB\Db;
-use jsonDB\Validate;
-use jsonDB\dbException;
+use cybrox\crunchdb\crunchDB as crunchDB;
+
 //======================================================================
 // Variables
 //======================================================================
@@ -82,38 +79,17 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         exit();
     } else {
 
-        $_db = './data/';
-        $db = new Db($_db);
-        $db->run();
+        $cdb = new crunchDB('./data/');
 
-        try{
-            Validate::table('orders')->exists();
-        } catch(dbException $e){
-            $arr = array(
-                'id' => 'integer',
-                'name' => 'string',
-                'phone' => 'string',
-                'mail' => 'string',
-                'comment' => 'string',
-                'pet' => 'string',
-                'payway' => 'string',
-            );
-            jsonDb::create('orders', $arr);
-        }
-        $order = array('id'=>'1', 'name'=>$name, 'phone'=>$phone, 'mail'=>$mail, 'comment'=>$messageForm, 'pet'=>$petName, 'payWay'=>$pay);
+       if(!$cdb->table('orders')->exists()){
+           $cdb->table('orders')->create();
+       }
 
-        $row = jsonDb::table('orders');
-        $id = $row->lastId() +1;
-        $row->id = $id;
-        $row->name = $name;
-        $row->phone = $phone;
-        $row->mail = $mail;
-        $row->comment = $messageForm;
-        $row->pet = $name;
-        $row->payway = $pay;
-        $row->save();
+        $id = $cdb->table('orders')->count() + 1;
+        $order = array('id'=>$id, 'name'=>$name, 'phone'=>$phone, 'mail'=>$mail, 'comment'=>$messageForm, 'pet'=>$petName, 'payway'=>$pay);
 
-//        echo json_encode($row->where('id','=',2)->findAll()->asArray());
+        $cdb->table('orders')->insert($order);
+
         $to = __TO__;
         $subject = 'Заказ №'.$id ;
         $storeMessage = '

@@ -4,9 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "af4d53dedfa1c0155fadd33deef2bbf4",
-    "content-hash": "97fc9c8abe478bbe63801077fa771717",
+    "hash": "318d3b657719d78346fbf338aa898681",
+    "content-hash": "8a040cbb7b5260bea8bff1941f6364b9",
     "packages": [
+        {
+            "name": "cybrox/crunchdb",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cybrox/crunchdb.git",
+                "reference": "5b6d0c14dff2cda261e00bc63d95df851847f844"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cybrox/crunchdb/zipball/5b6d0c14dff2cda261e00bc63d95df851847f844",
+                "reference": "5b6d0c14dff2cda261e00bc63d95df851847f844",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "cybrox\\crunchdb\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sven Gehring",
+                    "email": "cbrxde@gmail.com",
+                    "homepage": "https://cybrox.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Dead-simple json file based data storage for php applications",
+            "homepage": "https://github.com/cybrox/crunchdb",
+            "keywords": [
+                "Simple",
+                "database",
+                "db",
+                "json"
+            ],
+            "time": "2018-04-08 12:39:50"
+        },
         {
             "name": "phpmailer/phpmailer",
             "version": "v5.2.26",
@@ -83,60 +128,6 @@
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "time": "2017-11-04 09:26:05"
-        },
-        {
-            "name": "pllano/json-db",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pllano/json-db.git",
-                "reference": "cd60905118d9f68049e160d4be1fc18b9316989b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pllano/json-db/zipball/cd60905118d9f68049e160d4be1fc18b9316989b",
-                "reference": "cd60905118d9f68049e160d4be1fc18b9316989b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "defuse/php-encryption": "^v2.1",
-                "guzzlehttp/guzzle": "^6.3",
-                "monolog/monolog": "^1.23",
-                "phpunit/phpunit": "^6.4",
-                "slim/slim": "^3.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "jsonDB\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "pllano",
-                    "email": "open.source@pllano.com",
-                    "homepage": "https://pllano.com/"
-                }
-            ],
-            "description": "API json DB",
-            "homepage": "https://github.com/pllano/api-json-db",
-            "keywords": [
-                "db",
-                "json"
-            ],
-            "time": "2017-12-11 16:28:32"
         }
     ],
     "packages-dev": [],
