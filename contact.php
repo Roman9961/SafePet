@@ -68,6 +68,13 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
     $petName = $_POST['petName'];
     $messageForm = $_POST['messageForm'];
 
+    $colors = array(
+        'red'=>'Красный',
+        'blue'=>'Синий',
+        'green'=>'Зеленый',
+        'orange'=>'Оранжевый',
+        'yellow'=>'Желтый'
+    );
     if($name == '') {
         echo json_encode(array('info' => 'error', 'msg' => "Please enter your name."));
         exit();
@@ -144,11 +151,11 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         <body>
         <p>Добрый день, '.$name.'!</p>
         <p> Вы сделали заказ ошейника с именной биркой в магазине SafePet.</p>
-        <p>Номер вашего заказа <b>'.$id.'</b></p>
+        <p>Номер вашего заказа: <b>'.$id.'</b></p>
 
         <p>Детали заказа:</p>
 
-        <p>Цвет: <span style="font-size: 20px; color:'.$color.'">&#9632;</span></p>
+        <p>Цвет: <span style="font-size: 20px; color:'.$color.'">&#9632;</span>('.$colors[$color].')</p>
         
         <p>Размер: '.$size.'</p>
         
