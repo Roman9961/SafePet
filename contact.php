@@ -1,6 +1,7 @@
 <?php
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 require 'vendor/autoload.php';
+include_once ('vendor/pllano/json-db/src/Run.php');
 
 use jsonDB\Database as jsonDb;
 use jsonDB\Db;

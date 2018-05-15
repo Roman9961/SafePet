@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d0be1eba23ad23866208ac6c69f7d58e",
-    "content-hash": "42a96db817ab8b536e3dd29b17754d5f",
+    "hash": "af4d53dedfa1c0155fadd33deef2bbf4",
+    "content-hash": "97fc9c8abe478bbe63801077fa771717",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
@@ -86,20 +86,20 @@
         },
         {
             "name": "pllano/json-db",
-            "version": "1.1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pllano/json-db.git",
-                "reference": "cee22921fa11774a887852fc052c61c3cbae1c90"
+                "reference": "cd60905118d9f68049e160d4be1fc18b9316989b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pllano/json-db/zipball/cee22921fa11774a887852fc052c61c3cbae1c90",
-                "reference": "cee22921fa11774a887852fc052c61c3cbae1c90",
+                "url": "https://api.github.com/repos/pllano/json-db/zipball/cd60905118d9f68049e160d4be1fc18b9316989b",
+                "reference": "cd60905118d9f68049e160d4be1fc18b9316989b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "defuse/php-encryption": "^v2.1",
@@ -131,12 +131,12 @@
                 }
             ],
             "description": "API json DB",
-            "homepage": "https://github.com/pllano/json-db",
+            "homepage": "https://github.com/pllano/api-json-db",
             "keywords": [
                 "db",
                 "json"
             ],
-            "time": "2018-01-25 16:48:57"
+            "time": "2017-12-11 16:28:32"
         }
     ],
     "packages-dev": [],
