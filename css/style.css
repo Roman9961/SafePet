@@ -478,7 +478,11 @@ div.carousel-inner .item img {
 /*---------------------------------------
    SECTION FEATURES              
 -----------------------------------------*/
-
+@media (min-width: 1700px) {
+    .features-container{
+        width: 1700px;
+    }
+}
 .features {
     background-color: #f1f1f1
 }
@@ -508,7 +512,7 @@ div.carousel-inner .item img {
 .right_single_feature h3 {
     text-transform: uppercase;
     word-wrap: break-word;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 21px;
     color: #333333;
@@ -598,7 +602,7 @@ div.carousel-inner .item img {
 .left_single_feature h3 {
     text-transform: uppercase;
     word-wrap: break-word;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 21px;
     color: #333333;

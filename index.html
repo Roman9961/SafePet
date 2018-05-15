@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Owl Carousel Assets -->
@@ -154,7 +155,7 @@
         </div>
 
         <div class="feature_inner">
-            <div class="container">
+            <div class="container features-container">
                 <div class="row">
                     <div class="col-md-4 right_no_padding wow fadeInLeft" data-wow-duration="1s">
                         <!-- FEATURE -->
@@ -368,7 +369,7 @@
                     <form role="form" action="contact.php">
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="name" placeholder="Name">
+                                <input type="text" class="form-control" id="name" placeholder="Имя">
                                 <input type="email" class="form-control" id="email" placeholder="Email">
                                 <input type="text" class="form-control" id="petName" placeholder="Кличка собаки на бирке">
                                 <input type="number" class="form-control" id="phone" placeholder="Номер телефона хозяина на бирке">
@@ -376,11 +377,30 @@
 
 
                             <div class="col-md-8">
+                                <label for="sel1">Размер <sup style="color: gray"><i class="glyphicon glyphicon-question-sign"></i><span><a href="#test-popup" class="open-popup-link" style="text-decoration: none; color: gray;">Как выбрать размер ошейника</a></span></sup></label>
+                                <select class="form-control" name="size" id="size">
+                                    <option value="XXS">XXS</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                                <label for="sel1">Цвет</label>
+                                <select class="form-control" name="color" id="color">
+                                    <option value="red">Красный</option>
+                                    <option value="yellow">Желтый</option>
+                                    <option value="blue">Синий</option>
+                                    <option value="green">Зеленый</option>
+                                    <option value="orange">Оранжевый</option>
+                                </select>
                                 <label for="sel1"> Способ оплаты</label>
                                 <select class="form-control" name="pay" id="sel1">
-                                    <option value="card">Карта</option>
                                     <option value="cash">Наличными через терминал Приват</option>
                                 </select>
+
+                            </div>
+                            <div class="col-md-12">
                                 <textarea class="form-control" id="message" rows="25" cols="10" placeholder="Комментарии к заказу"></textarea>
                                 <button type="button" class="btn btn-default submit-btn form_submit">Купить</button>
                             </div>
@@ -456,7 +476,7 @@
                     <!-- COPYRIGHT TEXT -->
                         <p>Copyright &copy; 2018. All Rights Reserved.</p>
                         <p>A theme by <a href="https://dcrazed.com/">Dcrazed</a></p>
-                        <p>Icons made by <a href="#test-popup" class="open-popup-link">SafePet</a></p>
+                        <p>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
                     </div>
                      
                 </div>

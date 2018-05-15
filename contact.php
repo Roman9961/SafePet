@@ -1,6 +1,6 @@
 <?php
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
-
+require 'vendor/autoload.php';
 
 //======================================================================
 // Variables
@@ -26,6 +26,7 @@ define('__MESSAGE_EMPTY_FIELDS__', "Please fill out  all fields");
 
 //E-mail validation
 function check_email($email){
+    return true;
     if(!@eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email)){
         return false;
     } else {
@@ -58,6 +59,8 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
     $mail = $_POST['mail'];
     $phone = $_POST['phone'];
     $payWay = $_POST['pay'];
+    $color = $_POST['color'];
+    $size = $_POST['size'];
     $pay = $payWay === 'card' ? 'Карта': 'Наличные';
     $payClient = $payWay === 'card'?'на карту xxxx-xxxx-xxxx-xxxx': 'по счету №ххххххххххх';
     $petName = $_POST['petName'];
@@ -73,8 +76,14 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         echo json_encode(array('info' => 'error', 'msg' => "Please enter your message."));
         exit();
     } else {
+
+        $db     = new \philwc\JsonDB('./data');
+        $id = count($db->selectAll('orders')) +1;
+        $order = array('id'=>$id, 'name'=>$name, 'phone'=>$phone, 'mail'=>$mail, 'comment'=>$messageForm, 'pet'=>$petName, 'payWay'=>$pay);
+        $db->insert('orders', $order);
+
         $to = __TO__;
-        $subject = 'Бирка для '.$petName;
+        $subject = 'Заказ №'.$id ;
         $storeMessage = '
         <html>
         <head>
@@ -82,6 +91,10 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         </head>
         <body>
           <table style="width: 500px; font-family: arial; font-size: 14px;" border="1">
+          <tr style="height: 32px;">
+              <th align="right" style="width:150px; padding-right:5px;">Order Id:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $id .'</td>
+            </tr>
             <tr style="height: 32px;">
               <th align="right" style="width:150px; padding-right:5px;">Name:</th>
               <td align="left" style="padding-left:5px; line-height: 20px;">'. $name .'</td>
@@ -114,16 +127,40 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         $clientMessage = '
         <html>
         <head>
-          <title>Mail from '. $name .'</title>
+          <title>Mail from SafePet</title>
         </head>
         <body>
-        Ваш заказ бирка для c именем'. $petName.' и телефоном '.$phone.' принят! Ждем оплаты '.$payClient.'
+        <p>Добрый день, '.$name.'!</p>
+        <p> Вы сделали заказ ошейника с именной биркой в магазине SafePet.</p>
+        <p>Номер вашего заказа <b>'.$id.'</b></p>
+
+        <p>Детали заказа:</p>
+
+        <p>Цвет: <span style="font-size: 20px; color = '.$color.'">&#9632;</span></p>
+        
+        <p>Размер: '.$size.'</p>
+        
+        <p>Имя животного на бирке: '.$petName.'</p>
+        
+        <p>Контакты хозяина: '.$phone.'</p>
+        
+        <p>Способ оплаты: Карта Приват, номер ХХХХ-ХХХХ-ХХХХ-ХХХХ</p>
+        <p>В назначении платежа укажите номер заказа </p>
+        
+        <p>Напоминаем, Заказ будет выполнен и отгружен через 3 (три) рабочих дня с момента получения оплаты.</p>
+        
+        
+        <p>Сумма заказа: 299 грн</p>
+        <p>Смоимость доставки: 0 грн </p>
+        
+       <p> Если у вас есть вопросы  или нужно изменить детали заказа, пишите на почту <a href="mailto:ordersafepet@gmail.com">ordersafepet@gmail.com</a>  с указанием номера заказа в теме письма.</p>
         </body>
         </html>
         ';
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
         $headers .= 'From: ' . $mail . "\r\n";
+
 
         send_mail($to,$subject,$storeMessage,$name);
         send_mail($mail,$subject,$clientMessage,$name);

@@ -236,6 +236,8 @@ $(document).ready(function() {
         var emaild = $("#email").val();
         var phone = $("#phone").val();
         var pay = $("#sel1").val();
+        var color = $("#color").val();
+        var size = $("#size").val();
         var petName = $("#petName").val();
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
@@ -274,11 +276,13 @@ $(document).ready(function() {
                     petName,
                     pay,
                     phone,
+                    color,
+                    size,
                     messageForm: message
                 },
                 type: 'POST',
                 success: function(data) {
-
+console.log(data);
                     $(".Sucess").show();
                     $(".Sucess").fadeIn(2000);
                     $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");

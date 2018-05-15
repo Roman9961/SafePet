@@ -4,9 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1e0855a6c5e186071d9f92abfb5aebde",
-    "content-hash": "11d5891335c103b4d4ac4f5ac5ea47c4",
+    "hash": "b115c15f8579966245aebbbdc2b88a75",
+    "content-hash": "7ecab8b9bb4ca3302cad9937d3953556",
     "packages": [
+        {
+            "name": "philwc/jsondb",
+            "version": "v0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/philwc/JsonDB.git",
+                "reference": "16f240f2341465347b4f5215abcef96c815269fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/philwc/JsonDB/zipball/16f240f2341465347b4f5215abcef96c815269fe",
+                "reference": "16f240f2341465347b4f5215abcef96c815269fe",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "philwc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Wright- Christie",
+                    "email": "philwc@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Database using json",
+            "homepage": "https://github.com/philwc/JsonDB",
+            "keywords": [
+                "database",
+                "db",
+                "json"
+            ],
+            "time": "2016-09-13 07:08:05"
+        },
         {
             "name": "phpmailer/phpmailer",
             "version": "v5.2.26",
