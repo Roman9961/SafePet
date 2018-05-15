@@ -4,52 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b115c15f8579966245aebbbdc2b88a75",
-    "content-hash": "7ecab8b9bb4ca3302cad9937d3953556",
+    "hash": "d0be1eba23ad23866208ac6c69f7d58e",
+    "content-hash": "42a96db817ab8b536e3dd29b17754d5f",
     "packages": [
-        {
-            "name": "philwc/jsondb",
-            "version": "v0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/philwc/JsonDB.git",
-                "reference": "16f240f2341465347b4f5215abcef96c815269fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/philwc/JsonDB/zipball/16f240f2341465347b4f5215abcef96c815269fe",
-                "reference": "16f240f2341465347b4f5215abcef96c815269fe",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "philwc\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Phil Wright- Christie",
-                    "email": "philwc@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Database using json",
-            "homepage": "https://github.com/philwc/JsonDB",
-            "keywords": [
-                "database",
-                "db",
-                "json"
-            ],
-            "time": "2016-09-13 07:08:05"
-        },
         {
             "name": "phpmailer/phpmailer",
             "version": "v5.2.26",
@@ -126,6 +83,60 @@
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "time": "2017-11-04 09:26:05"
+        },
+        {
+            "name": "pllano/json-db",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pllano/json-db.git",
+                "reference": "cee22921fa11774a887852fc052c61c3cbae1c90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pllano/json-db/zipball/cee22921fa11774a887852fc052c61c3cbae1c90",
+                "reference": "cee22921fa11774a887852fc052c61c3cbae1c90",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "defuse/php-encryption": "^v2.1",
+                "guzzlehttp/guzzle": "^6.3",
+                "monolog/monolog": "^1.23",
+                "phpunit/phpunit": "^6.4",
+                "slim/slim": "^3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "jsonDB\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "pllano",
+                    "email": "open.source@pllano.com",
+                    "homepage": "https://pllano.com/"
+                }
+            ],
+            "description": "API json DB",
+            "homepage": "https://github.com/pllano/json-db",
+            "keywords": [
+                "db",
+                "json"
+            ],
+            "time": "2018-01-25 16:48:57"
         }
     ],
     "packages-dev": [],

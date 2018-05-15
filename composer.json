@@ -8,6 +8,6 @@
     ],
     "require": {
         "phpmailer/phpmailer": "5.2.26",
-        "philwc/jsondb": "^0.2.0"
+        "pllano/json-db": "^1.0.1"
     }
 }
