@@ -8,7 +8,7 @@ require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
 
 //E-mail address. Enter your email
-define("__TO__", "youremail@domain.com");
+define("__TO__", "romanrimskiy@gmail.com");
 
 //Success message
 define('__SUCCESS_MESSAGE__', "Your message has been sent. We will reply soon. Thank you!");
@@ -36,11 +36,12 @@ function check_email($email){
 //Send mail
 function send_mail($to,$subject,$message,$name){
     $mail = new PHPMailer(true);
+    $mail->CharSet = 'UTF-8';
     $mail->IsHTML(true);
     $mail->isSMTP();
     $mail->Host = '127.0.0.1';
     $mail->Port = 25;
-    $mail->setFrom('from@example.com', 'Mailer');
+    $mail->setFrom('support@ucell.com.ua', 'SafePet');
     $mail->addAddress($to, $name);
     $mail->Subject = $subject;
     $mail->Body    = $message;
