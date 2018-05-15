@@ -93,7 +93,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
        }
 
         $id = $cdb->table('orders')->count() + 1;
-        $order = array('id'=>$id, 'name'=>$name, 'phone'=>$phone, 'mail'=>$mail, 'comment'=>$messageForm, 'pet'=>$petName, 'payway'=>$pay);
+        $order = array('id'=>$id);
 
         $cdb->table('orders')->insert($order);
 
