@@ -119,6 +119,10 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
               <th align="right" style="width:150px; padding-right:5px;">Имя питомца:</th>
               <td align="left" style="padding-left:5px; line-height: 20px;">'. $petName .'</td>
             </tr>
+            <tr style="height: 32px;">
+              <th align="right" style="width:150px; padding-right:5px;">Цвет ошейника:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $color .'</td>
+            </tr>
              <tr style="height: 32px;">
               <th align="right" style="width:150px; padding-right:5px;">Способ оплаты:</th>
               <td align="left" style="padding-left:5px; line-height: 20px;">'. $pay .'</td>
@@ -144,7 +148,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
 
         <p>Детали заказа:</p>
 
-        <p>Цвет: <span style="font-size: 20px; color = '.$color.'">&#9632;</span></p>
+        <p>Цвет: <span style="font-size: 20px; color:\''.$color.'\'">&#9632;</span></p>
         
         <p>Размер: '.$size.'</p>
         
