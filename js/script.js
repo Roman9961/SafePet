@@ -157,7 +157,7 @@ $(document).ready(function() {
 
     function parallaxInit() {
         "use strict";
-        $('.home-parallax').parallax("30%", 0.1);
+        // $('.home-parallax').parallax("30%", 0.1);
         $('.subscribe-parallax').parallax("30%", 0.1);
         $('.testimonial').parallax("10%", 1);
         /*add as necessary*/
@@ -234,7 +234,9 @@ $(document).ready(function() {
 
         var name = $("#name").val();
         var emaild = $("#email").val();
-        var subject = $("#subject").val();
+        var phone = $("#phone").val();
+        var pay = $("#pay").val();
+        var petName = $("#petName").val();
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         if (!name) {
@@ -266,9 +268,11 @@ $(document).ready(function() {
             $.ajax({
                 url: 'contact.php',
                 data: {
-                    name: name,
+                    name,
                     mail: emaild,
-                    subjectForm: subject,
+                    petName,
+                    pay,
+                    phone,
                     messageForm: message
                 },
                 type: 'POST',
@@ -276,7 +280,7 @@ $(document).ready(function() {
 
                     $(".Sucess").show();
                     $(".Sucess").fadeIn(2000);
-                    $(".Sucess").html("<i class='fa fa-check'></i> Dear <b>" + name + "</b> Thank you for your inquiry we will respond to you as soon as possible!");
+                    $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");
                     $("#Name").val("");
                     $("#Email").val("");
                     $("#Subject").val("");
@@ -319,7 +323,15 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function() {
 
+        "use strict";
+
+    $('.open-popup-link').magnificPopup({
+        type:'inline',
+        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+    });
+});
 
 
 

@@ -1,0 +1,22 @@
+{
+  "name": "safepet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Roman9961/SafePet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Roman9961/SafePet/issues"
+  },
+  "homepage": "https://github.com/Roman9961/SafePet#readme",
+  "dependencies": {
+    "magnific-popup": "^1.1.0"
+  }
+}

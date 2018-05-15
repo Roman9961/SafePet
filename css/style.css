@@ -27,12 +27,12 @@ URL: http://designscrazed.org/
     padding: 0;
 }
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: hidden;''
 }
 p {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
 }
 /*---------------------------------------
@@ -88,7 +88,7 @@ p {
     margin-top: -100px
 }
 .navbar-brand {
-    padding: 9px 15px;
+    padding: 0;
 }
 .container .navbar-nav>li>a{
     color: white;
@@ -102,7 +102,6 @@ p {
         height: 65px;
         width: 65px;
         display: block;
-        margin: 25px 0;
     }
     .navbar-default {
         background-color: transparent;
@@ -110,7 +109,7 @@ p {
     .navbar-default .navbar-nav>li>a {
         color: #B5B5B5;
         text-transform: uppercase;
-        font-family: 'Raleway', sans-serif;
+        font-family: 'IBM Plex Sans', sans-serif;
     }
     .navbar-default .navbar-nav>li>a:hover {
         color: #feda44;
@@ -158,6 +157,7 @@ p {
     background: url(../images/fon.jpg);
     background-size: cover;
 	background-repeat: no-repeat;
+    background-position: 50% bottom;
 }
 .header .section_overlay {
     background-color: rgba(33, 33, 33, .75);
@@ -167,14 +167,14 @@ p {
     justify-content: center;
 }
 .headerLogo{
-    background: url(../images/logo_safepet-01.svg) no-repeat center center white;
-    width: 65px;
-    height:65px;
+    background: url(../images/logo_safepet-01.svg) no-repeat center center;
+    width: 100px;
+    height:50px;
 }
 .headerLogoBig{
-    background: url(../images/logo_safepet-01.svg) no-repeat center center white;
-    width: 120px;
-    height:120px;
+    background: url(../images/logo_safepet-01.svg) no-repeat center center;
+    width: 160px;
+    height:160px;
 }
 .home_text{
     text-align: left;
@@ -198,6 +198,9 @@ p {
     }
     .home_text{
         text-align: center;
+    }
+    .header {
+        background-position: 50% bottom;
     }
 
 }
@@ -504,6 +507,7 @@ div.carousel-inner .item img {
 }
 .right_single_feature h3 {
     text-transform: uppercase;
+    word-wrap: break-word;
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 21px;
@@ -559,21 +563,20 @@ div.carousel-inner .item img {
     height: 65px;
     width: 65px;
     display: block;
-    margin: 15px 20px;
+    margin: 0 20px;
 }
 .wanted{
     background: url('../images/wanted.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
-    margin: 15px 20px;
+    margin: 0 20px;
 }
 .leash{
     background: url('../images/leash.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
-    margin: 55px 0;
 }
 .pawprint{
     background: url('../images/pawprint.svg')no-repeat;
@@ -594,6 +597,7 @@ div.carousel-inner .item img {
 }
 .left_single_feature h3 {
     text-transform: uppercase;
+    word-wrap: break-word;
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 21px;
@@ -962,7 +966,7 @@ div.carousel-inner .item img {
     color: #3d3d3d;
 }
 #message {
-    height: 117px;
+    height: 90px;
     resize: none;
 }
 /*---------------------------------------

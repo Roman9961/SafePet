@@ -55,7 +55,10 @@ function send_mail($to,$subject,$message,$name){
 if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm'])){
     $name = $_POST['name'];
     $mail = $_POST['mail'];
-    $subjectForm = $_POST['subjectForm'];
+    $phone = $_POST['phone'];
+    $payWay = $_POST['pay'];
+    $pay = $payWay === 'card' ? 'Карта': 'Наличные';
+    $petName = $_POST['petName'];
     $messageForm = $_POST['messageForm'];
 
     if($name == '') {
@@ -69,8 +72,8 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         exit();
     } else {
         $to = __TO__;
-        $subject = $subjectForm . ' ' . $name;
-        $message = '
+        $subject = 'Бирка для '.$petName;
+        $storeMessage = '
         <html>
         <head>
           <title>Mail from '. $name .'</title>
@@ -86,23 +89,42 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
               <td align="left" style="padding-left:5px; line-height: 20px;">'. $mail .'</td>
             </tr>
             <tr style="height: 32px;">
-              <th align="right" style="width:150px; padding-right:5px;">Subject:</th>
-              <td align="left" style="padding-left:5px; line-height: 20px;">'. $subjectForm .'</td>
+              <th align="right" style="width:150px; padding-right:5px;">Телефон:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $phone .'</td>
             </tr>
             <tr style="height: 32px;">
-              <th align="right" style="width:150px; padding-right:5px;">Message:</th>
-              <td align="left" style="padding-left:5px; line-height: 20px;">'. $messageForm  .'</td>
+              <th align="right" style="width:150px; padding-right:5px;">Имя питомца:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $petName .'</td>
+            </tr>
+             <tr style="height: 32px;">
+              <th align="right" style="width:150px; padding-right:5px;">Способ оплаты:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $pay .'</td>
+            </tr>
+            <tr style="height: 32px;">
+              <th align="right" style="width:150px; padding-right:5px;">Комментарий:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $messageForm .'</td>
             </tr>
           </table>
         </body>
         </html>
         ';
 
+        $clientMessage = '
+        <html>
+        <head>
+          <title>Mail from '. $name .'</title>
+        </head>
+        <body>
+        Ваш заказ бирка для c именем'. $petName.' и телефоном '.$phone.' принят! Ждем оплаты '.$payWay === 'card'?'на карту xxxx-xxxx-xxxx-xxxx': 'по счету №ххххххххххх'.'
+        </body>
+        </html>
+        ';
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
         $headers .= 'From: ' . $mail . "\r\n";
 
-        send_mail($to,$subject,$message,$name);
+        send_mail($to,$subject,$storeMessage,$name);
+        send_mail($mail,$subject,$clientMessage,$name);
     }
 } else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));
