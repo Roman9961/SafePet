@@ -59,6 +59,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
     $phone = $_POST['phone'];
     $payWay = $_POST['pay'];
     $pay = $payWay === 'card' ? 'Карта': 'Наличные';
+    $payClient = $payWay === 'card'?'на карту xxxx-xxxx-xxxx-xxxx': 'по счету №ххххххххххх';
     $petName = $_POST['petName'];
     $messageForm = $_POST['messageForm'];
 
@@ -116,7 +117,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
           <title>Mail from '. $name .'</title>
         </head>
         <body>
-        Ваш заказ бирка для c именем'. $petName.' и телефоном '.$phone.' принят! Ждем оплаты '.$payWay === 'card'?'на карту xxxx-xxxx-xxxx-xxxx': 'по счету №ххххххххххх'.'
+        Ваш заказ бирка для c именем'. $petName.' и телефоном '.$phone.' принят! Ждем оплаты '.$payClient.'
         </body>
         </html>
         ';
