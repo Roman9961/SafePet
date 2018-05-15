@@ -128,6 +128,10 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
               <td align="left" style="padding-left:5px; line-height: 20px;">'. $petName .'</td>
             </tr>
             <tr style="height: 32px;">
+              <th align="right" style="width:150px; padding-right:5px;">Размер:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $size .'</td>
+            </tr>
+            <tr style="height: 32px;">
               <th align="right" style="width:150px; padding-right:5px;">Цвет ошейника:</th>
               <td align="left" style="padding-left:5px; line-height: 20px;">'. $color .'</td>
             </tr>
