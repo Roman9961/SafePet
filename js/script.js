@@ -226,11 +226,11 @@ $(document).ready(function() {
 
         "use strict";
         var recaptcha = $("#g-recaptcha-response").val();
-        // if (recaptcha === "") {
-        //     event.preventDefault();
-        //     $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
-        //     return false;
-        // }
+        if (recaptcha === "") {
+            event.preventDefault();
+            $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
+            return false;
+        }
 
         var name = $("#name").val();
         var emaild = $("#email").val();
