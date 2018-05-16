@@ -190,6 +190,10 @@ p {
     align-items: center;
 }
 @media (max-width: 768px){
+    .grid-container{
+        display: block;
+    }
+    .fea
     .home-iphone{
         text-align: center;
     }
