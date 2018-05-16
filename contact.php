@@ -1,7 +1,7 @@
 <?php
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 require 'vendor/autoload.php';
-$mail =  include_once('config/config.php');
+$app =  require('config/config.php');
 
 use cybrox\crunchdb\crunchDB as crunchDB;
 
@@ -11,7 +11,7 @@ use cybrox\crunchdb\crunchDB as crunchDB;
 
 
 //E-mail address. Enter your email
-define("__TO__", $mail['user']);
+define("__TO__", $app['mail_user']);
 
 //Success message
 define('__SUCCESS_MESSAGE__', "Your message has been sent. We will reply soon. Thank you!");
@@ -38,15 +38,15 @@ function check_email($email){
 }
 
 //Send mail
-function send_mail($to,$subject,$message,$name){
+function send_mail($to,$subject,$message,$name, $app){
     $mail = new PHPMailer(true);
     $mail->CharSet = 'UTF-8';
     $mail->IsHTML(true);
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = $mail['user'];
-    $mail->Password = $mail['password'];
+    $mail->Username = $app['mail_user'];
+    $mail->Password = $app['mail_password'];
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->setFrom('ordersafepet@gmail.com', 'SafePet');
@@ -198,8 +198,8 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         $headers .= 'From: ' . $mail . "\r\n";
 
 
-        send_mail($to,$subject,$storeMessage,$name);
-        send_mail($mail,$subjectClient,$clientMessage,$name);
+        send_mail($to,$subject,$storeMessage,$name, $app);
+        send_mail($mail,$subjectClient,$clientMessage,$name, $app);
     }
 } else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));
