@@ -363,7 +363,11 @@ $(document).ready(function() {
         },
         type:'inline',
         midClick: true ,
-        mainClass: 'animated bounceIn'
+        callbacks: {
+            open: function () {
+                $('.mfp-content').addClass('animated bounceIn');
+            }
+        }
     });
 });
 
