@@ -282,7 +282,7 @@ $(document).ready(function() {
                 },
                 type: 'POST',
                 success: function(data) {
-console.log(data);
+
                     $(".Sucess").show();
                     $(".Sucess").fadeIn(2000);
                     $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");
