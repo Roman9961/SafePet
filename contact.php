@@ -48,7 +48,7 @@ function send_mail($to,$subject,$message,$name){
     $mail->Password = 'x7f#ds!DAcRWh3';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
-    $mail->setFrom('support@ucell.com.ua', 'SafePet');
+    $mail->setFrom('ordersafepet@gmail.com', 'SafePet');
     $mail->addAddress($to, $name);
     $mail->Subject = $subject;
     $mail->Body    = $message;
