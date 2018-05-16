@@ -1,3 +1,6 @@
+<?php
+$app = require('config/config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--
@@ -397,7 +400,7 @@
                                </div>
                             <div class="col-md-12">
                                 <div style="padding-bottom: 15px">
-                                    <div class="g-recaptcha " data-sitekey="6LdVg1kUAAAAAHCmolfIRkd68idKsVUDGjnFrDPo"></div>
+                                    <div class="g-recaptcha " data-sitekey= "<?php  echo $app['captcha'] ?>"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
