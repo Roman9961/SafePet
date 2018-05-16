@@ -104,7 +104,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
 
         $id = ($tableId*1000) + $cdb->table('orders_'.$tableId)->count() + 1;
 
-        $order = array('id'=>$id, 'name'=>$name, 'phone'=>$phone, 'mail'=>$mail, 'comment'=>$messageForm, 'pet'=>$petName, 'size'=>$size, 'color'=>$color, 'payway'=>$pay);
+        $order = array('id'=>$id, 'name'=>$name, 'phone'=>$phone, 'mail'=>$mail, 'comment'=>$messageForm, 'pet'=>$petName, 'size'=>$size, 'color'=>$color, 'payway'=>$payWay);
 
         $cdb->table('orders_'.$tableId)->insert($order);
 
