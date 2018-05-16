@@ -257,6 +257,8 @@ $(document).ready(function() {
             $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
             openPopup($(".form_error"));
             return false;
+        }else{
+            $(".form_error .recaptcha_val_error").addClass("hide").removeClass("show");
         }
 
         var name = $("#name").val();
