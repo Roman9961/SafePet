@@ -42,8 +42,12 @@ function send_mail($to,$subject,$message,$name){
     $mail->CharSet = 'UTF-8';
     $mail->IsHTML(true);
     $mail->isSMTP();
-    $mail->Host = '127.0.0.1';
-    $mail->Port = 25;
+    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'romanrimskiy@gmail.com';                 // SMTP username
+    $mail->Password = 'qaz321wsx';                           // SMTP password
+    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 587;
     $mail->setFrom('support@ucell.com.ua', 'SafePet');
     $mail->addAddress($to, $name);
     $mail->Subject = $subject;
