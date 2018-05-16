@@ -201,6 +201,8 @@ $(document).ready(function() {
 
     $("a[rel^='prettyPhoto']").prettyPhoto({
         show_title: false,
+        default_width: 5000,
+        default_height: 5000,
         /* true/false */
     });
 });
@@ -232,24 +234,24 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     "use strict";
-    
+    var openPopup = function (selector) {
+        $.magnificPopup.open({
+            items: {
+                src:  selector,
+            },
+            type:'inline',
+            callbacks: {
+                open: function () {
+                    $('.mfp-content').addClass('animated bounceIn');
+                }
+            }
+        });
+    };
     $(".form_submit").click(function() {
 
         "use strict";
         var recaptcha = $("#g-recaptcha-response").val();
-        var openPopup = function (selector) {
-            $.magnificPopup.open({
-                items: {
-                    src:  selector,
-                },
-                type:'inline',
-                callbacks: {
-                    open: function () {
-                        $('.mfp-content').addClass('animated bounceIn');
-                    }
-                }
-            });
-        };
+
         if (recaptcha === "") {
             event.preventDefault();
             $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
