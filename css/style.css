@@ -157,7 +157,7 @@ p {
     background: url(../images/fon.jpg);
     background-size: cover;
 	background-repeat: no-repeat;
-    background-position: 50% bottom;
+    background-position: 64% bottom;
 }
 .header .section_overlay {
     background-color: rgba(33, 33, 33, .75);
