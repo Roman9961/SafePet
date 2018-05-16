@@ -157,7 +157,7 @@ p {
     background: url(../images/fon.jpg);
     background-size: cover;
 	background-repeat: no-repeat;
-    background-position: 60% bottom;
+    background-position: 55% bottom;
 }
 .header .section_overlay {
     background-color: rgba(33, 33, 33, .75);
@@ -200,7 +200,7 @@ p {
         text-align: center;
     }
     .header {
-        background-position: 60% bottom;
+        background-position: 55% bottom;
     }
 
 }
