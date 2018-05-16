@@ -11,7 +11,7 @@ use cybrox\crunchdb\crunchDB as crunchDB;
 
 
 //E-mail address. Enter your email
-define("__TO__", $app['mail_user']);
+define("__TO__", $config['mail_user']);
 
 //Success message
 define('__SUCCESS_MESSAGE__', "Your message has been sent. We will reply soon. Thank you!");
