@@ -87,15 +87,25 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
     } else {
 
         $cdb = new crunchDB('./data/');
+        $tables = $cdb->tables();
+        end($tables);
 
-       if(!$cdb->table('orders')->exists()){
-           $cdb->table('orders')->create();
+        $tableId = key($tables)?key($tables):0;
+
+        if($cdb->table('orders_'.$tableId)->exists()) {
+            if ($cdb->table('orders_' . $tableId)->count() >= 1000) {
+                $tableId++;
+            }
+        }
+       if(!$cdb->table('orders_'.$tableId)->exists()){
+           $cdb->table('orders_'.$tableId)->create();
        }
 
-        $id = $cdb->table('orders')->count() + 1;
-        $order = array('id'=>$id);
+        $id = ($tableId*1000) + $cdb->table('orders_'.$tableId)->count() + 1;
 
-        $cdb->table('orders')->insert($order);
+        $order = array('id'=>$id, 'name'=>$name, 'phone'=>$phone, 'mail'=>$mail, 'comment'=>$messageForm, 'pet'=>$petName, 'size'=>$size, 'color'=>$color, 'payway'=>$pay);
+
+        $cdb->table('orders_'.$tableId)->insert($order);
 
         $to = __TO__;
         $subject = 'Заказ №'.$id ;
@@ -186,8 +196,8 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         $headers .= 'From: ' . $mail . "\r\n";
 
 
-        send_mail($to,$subject,$storeMessage,$name);
-        send_mail($mail,$subjectClient,$clientMessage,$name);
+//        send_mail($to,$subject,$storeMessage,$name);
+//        send_mail($mail,$subjectClient,$clientMessage,$name);
     }
 } else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));
