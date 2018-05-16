@@ -226,11 +226,11 @@ $(document).ready(function() {
 
         "use strict";
         var recaptcha = $("#g-recaptcha-response").val();
-        if (recaptcha === "") {
-            event.preventDefault();
-            $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
-            return false;
-        }
+        // if (recaptcha === "") {
+        //     event.preventDefault();
+        //     $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
+        //     return false;
+        // }
 
         var name = $("#name").val();
         var emaild = $("#email").val();
@@ -241,15 +241,29 @@ $(document).ready(function() {
         var petName = $("#petName").val();
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-
+        var openPopup = function (selector) {
+            $.magnificPopup.open({
+                items: {
+                    src:  selector,
+                },
+                type:'inline',
+                callbacks: {
+                    open: function () {
+                        $('.mfp-content').addClass('animated bounceIn');
+                    }
+                }
+            });
+        }
         if (!name) {
             $(".form_error .name_error").addClass("show").removeClass("hide");
+            openPopup($(".form_error"));
             return false;
         } else {
             $(".form_error .name_error").addClass("hide").removeClass("show");
         }
         if (!emaild) {
             $(".form_error .email_error").addClass("show").removeClass("hide");
+            openPopup($(".form_error"));
             return false;
         } else {
             $(".form_error .email_error").addClass("hide").removeClass("show");
@@ -257,14 +271,23 @@ $(document).ready(function() {
                 $(".form_error .email_val_error").addClass("hide").removeClass("show");
             } else {
                 $(".form_error .email_val_error").addClass("show").removeClass("hide");
+                openPopup($(".form_error"));
                 return false;
             }
         }
-        if (!message) {
-            $(".form_error .message_error").addClass("show").removeClass("hide");
+        if (!phone) {
+            $(".form_error .phone_error").addClass("show").removeClass("hide");
+            openPopup($(".form_error"));
             return false;
         } else {
-            $(".form_error .message_error").addClass("hide").removeClass("show");
+            $(".form_error .phone_error").addClass("hide").removeClass("show");
+        }
+        if (!petName) {
+            $(".form_error .pet_name_error").addClass("show").removeClass("hide");
+            openPopup($(".form_error"));
+            return false;
+        } else {
+            $(".form_error .pet_name_error").addClass("hide").removeClass("show");
         }
 
         if (name && emaild && message) {
@@ -283,8 +306,8 @@ $(document).ready(function() {
                 type: 'POST',
                 success: function(data) {
 
-                    $(".Sucess").show();
-                    $(".Sucess").fadeIn(2000);
+                    // $(".Sucess").show();
+                    // $(".Sucess").fadeIn(2000);
                     $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");
                     $("#Name").val("");
                     $("#Email").val("");
@@ -333,8 +356,12 @@ $(document).ready(function() {
         "use strict";
 
     $('.open-popup-link').magnificPopup({
+        items: {
+            src: '.table-inverse'
+        },
         type:'inline',
-        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+        midClick: true ,
+        mainClass: 'animated bounceIn'
     });
 });
 
