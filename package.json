@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Roman9961/SafePet#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "magnific-popup": "^1.1.0"
+    "magnific-popup": "^1.1.0",
+    "owl.carousel2": "^2.2.1"
   }
 }
