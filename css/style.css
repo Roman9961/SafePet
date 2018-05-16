@@ -475,6 +475,13 @@ div.carousel-inner .item img {
     border: 0px solid #feda44;
     background: #feda44;
 }
+@media(max-width: 768px){
+    #owl-demo .item {
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 50px;
+    }
+}
 /*---------------------------------------
    SECTION FEATURES              
 -----------------------------------------*/
