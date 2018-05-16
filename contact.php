@@ -1,6 +1,7 @@
 <?php
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 require 'vendor/autoload.php';
+$mail =  include_once('config/config.php');
 
 use cybrox\crunchdb\crunchDB as crunchDB;
 
@@ -10,7 +11,7 @@ use cybrox\crunchdb\crunchDB as crunchDB;
 
 
 //E-mail address. Enter your email
-define("__TO__", "ordersafepet@gmail.com ");
+define("__TO__", $mail['user']);
 
 //Success message
 define('__SUCCESS_MESSAGE__', "Your message has been sent. We will reply soon. Thank you!");
@@ -44,8 +45,8 @@ function send_mail($to,$subject,$message,$name){
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'ordersafepet@gmail.com';
-    $mail->Password = 'x7f#ds!DAcRWh3';
+    $mail->Username = $mail['user'];
+    $mail->Password = $mail['password'];
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->setFrom('ordersafepet@gmail.com', 'SafePet');
