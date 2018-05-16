@@ -196,8 +196,8 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         $headers .= 'From: ' . $mail . "\r\n";
 
 
-//        send_mail($to,$subject,$storeMessage,$name);
-//        send_mail($mail,$subjectClient,$clientMessage,$name);
+        send_mail($to,$subject,$storeMessage,$name);
+        send_mail($mail,$subjectClient,$clientMessage,$name);
     }
 } else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));
