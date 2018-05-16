@@ -1,7 +1,7 @@
 <?php
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 require 'vendor/autoload.php';
-$app =  require('config/config.php');
+$config =  require('config/config.php');
 
 use cybrox\crunchdb\crunchDB as crunchDB;
 
@@ -38,15 +38,15 @@ function check_email($email){
 }
 
 //Send mail
-function send_mail($to,$subject,$message,$name, $app){
+function send_mail($to,$subject,$message,$name, $user, $password){
     $mail = new PHPMailer(true);
     $mail->CharSet = 'UTF-8';
     $mail->IsHTML(true);
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = $app['mail_user'];
-    $mail->Password = $app['mail_password'];
+    $mail->Username = $user;
+    $mail->Password = $password;
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->setFrom('ordersafepet@gmail.com', 'SafePet');
@@ -198,8 +198,8 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         $headers .= 'From: ' . $mail . "\r\n";
 
 
-        send_mail($to,$subject,$storeMessage,$name, $app);
-        send_mail($mail,$subjectClient,$clientMessage,$name, $app);
+        send_mail($to,$subject,$storeMessage,$name, $config['mail_user'], $config['mail_password']);
+        send_mail($mail,$subjectClient,$clientMessage,$name, $config['mail_user'], $config['mail_password']);
     }
 } else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));
