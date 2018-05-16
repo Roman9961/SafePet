@@ -85,9 +85,6 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
     } else if($mail == '' or check_email($mail) == false){
         echo json_encode(array('info' => 'error', 'msg' => "Please enter valid e-mail."));
         exit();
-    } else if($messageForm == ''){
-        echo json_encode(array('info' => 'error', 'msg' => "Please enter your message."));
-        exit();
     } else {
 
         $cdb = new crunchDB('./data/');
