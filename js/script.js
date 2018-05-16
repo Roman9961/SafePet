@@ -320,6 +320,7 @@ $(document).ready(function() {
                     $("#email").val("");
                     $("#subject").val("");
                     $("#message").val("");
+                    openPopup($(".Sucess"));
                 }
             });
         }
