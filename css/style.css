@@ -190,10 +190,6 @@ p {
     align-items: center;
 }
 @media (max-width: 768px){
-    .grid-container{
-        display: block;
-    }
-    .fea
     .home-iphone{
         text-align: center;
     }
@@ -548,14 +544,6 @@ div.carousel-inner .item img {
     display: block;
     margin-top: 20px;
 }
-.no-erase{
-    background: url('../images/no-erase.svg')no-repeat;
-    height: 65px;
-    width: 65px;
-    display: block;
-    margin: 20px 20px 0;
-
-}
 
 .dog-leads{
     background: url('../images/dog-leads.svg')no-repeat;
@@ -563,6 +551,13 @@ div.carousel-inner .item img {
     width: 65px;
     display: block;
     margin-top: 20px;
+}
+.no-erase{
+    background: url('../images/no-erase.svg')no-repeat;
+    height: 65px;
+    width: 65px;
+    display: block;
+    margin: 20px 20px 0;
 }
 .idea{
     background: url('../images/idea.svg')no-repeat;
@@ -649,7 +644,36 @@ div.carousel-inner .item img {
     }
 }
 
+@media (max-width: 768px) {
+    .grid-container{
+        display: block;
+    }
+    .shield{
+        margin-top: 0;
+    }
 
+    .dog-leads{
+        margin-top:0;
+    }
+    .leash{
+        margin-top: 0;
+    }
+    .pawprint{
+        margin-top: 0;
+    }
+    .no-erase{
+    margin: 0 20px;
+    }
+    .idea{
+    margin: 0 20px;
+    }
+    .measuring{
+    margin: 0 20px;
+    }
+    .wanted{
+    margin: 0 20px;
+    }
+}
 /*---------------------------------------
    SECTION CALL TO ACTION              
 -----------------------------------------*/
