@@ -10,7 +10,7 @@ use cybrox\crunchdb\crunchDB as crunchDB;
 
 
 //E-mail address. Enter your email
-define("__TO__", "romanrimskiy@gmail.com");
+define("__TO__", "ordersafepet@gmail.com ");
 
 //Success message
 define('__SUCCESS_MESSAGE__', "Your message has been sent. We will reply soon. Thank you!");
@@ -42,13 +42,13 @@ function send_mail($to,$subject,$message,$name){
     $mail->CharSet = 'UTF-8';
     $mail->IsHTML(true);
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'romanrimskiy@gmail.com';                 // SMTP username
-    $mail->Password = 'qaz321wsx';                           // SMTP password
-    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'ordersafepet@gmail.com';
+    $mail->Password = 'x7f#ds!DAcRWh3';
+    $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
-    $mail->setFrom('support@ucell.com.ua', 'SafePet');
+    $mail->setFrom('ordersafepet@gmail.com', 'SafePet');
     $mail->addAddress($to, $name);
     $mail->Subject = $subject;
     $mail->Body    = $message;
