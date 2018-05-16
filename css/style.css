@@ -1188,6 +1188,9 @@ select:-webkit-autofill {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
+.spinner-white > div {
+    background-color: white;
+}
 .spinner .bounce1 {
     -webkit-animation-delay: -0.32s;
     animation-delay: -0.32s;

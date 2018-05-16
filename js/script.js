@@ -270,7 +270,7 @@ $(document).ready(function() {
         var petName = $("#petName").val();
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-
+        var button =$(this);
         if (!name) {
             $(".form_error .name_error").addClass("show").removeClass("hide");
             openPopup($(".form_error"));
@@ -308,6 +308,8 @@ $(document).ready(function() {
         }
 
         if (name && emaild && petName && phone) {
+            button.attr('disabled', true);
+            openPopup($(".mail-loader"));
             $.ajax({
                 url: 'contact.php',
                 data: {
@@ -322,9 +324,7 @@ $(document).ready(function() {
                 },
                 type: 'POST',
                 success: function(data) {
-
-                    // $(".Sucess").show();
-                    // $(".Sucess").fadeIn(2000);
+                    button.attr('disabled', false);
                     $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");
                     $("#Name").val("");
                     $("#Email").val("");
