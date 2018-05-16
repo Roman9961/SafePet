@@ -177,7 +177,7 @@ p {
     height:160px;
 }
 .home_text{
-    text-align: left;
+    text-align: center;
 }
 .home-iphone{
     text-align: right;
@@ -483,6 +483,10 @@ div.carousel-inner .item img {
         width: 1620px;
     }
 }
+.grid-container{
+    display: grid;
+    grid-template-rows: 220px 220px 220px 220px;
+}
 .features {
     background-color: #f1f1f1
 }
@@ -497,7 +501,6 @@ div.carousel-inner .item img {
     position: relative;
     padding-left: 90px;
     margin-bottom: 65px;
-    margin-top: 35px;
 }
 .right_single_feature div {
     position: absolute;
@@ -533,20 +536,21 @@ div.carousel-inner .item img {
     padding-right: 90px;
     margin-bottom: 65px;
     text-align: right;
-    margin-top: 35px;
 }
 .shield{
     background: url('../images/shield.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
+    margin-top: 20px;
 }
 .no-erase{
     background: url('../images/no-erase.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
-    margin: 0 20px;
+    margin: 20px 20px 0;
+
 }
 
 .dog-leads{
@@ -554,40 +558,42 @@ div.carousel-inner .item img {
     height: 65px;
     width: 65px;
     display: block;
+    margin-top: 20px;
 }
 .idea{
     background: url('../images/idea.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
-    margin: 0 20px;
+    margin: 20px 20px 0;
 }
 .measuring{
     background: url('../images/measuring-tape.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
-    margin: 0 20px;
+    margin: 20px 20px 0;
 }
 .wanted{
     background: url('../images/wanted.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
-    margin: 0 20px;
+    margin: 20px 20px 0;
 }
 .leash{
     background: url('../images/leash.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
+    margin-top: 20px;
 }
 .pawprint{
     background: url('../images/pawprint.svg')no-repeat;
     height: 65px;
     width: 65px;
     display: block;
-
+    margin-top: 20px;
 }
 .left_single_feature div {
     position: absolute;
