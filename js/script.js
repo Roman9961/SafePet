@@ -307,7 +307,7 @@ $(document).ready(function() {
             $(".form_error .pet_name_error").addClass("hide").removeClass("show");
         }
 
-        if (name && emaild && message) {
+        if (name && emaild && petName && phone) {
             $.ajax({
                 url: 'contact.php',
                 data: {
