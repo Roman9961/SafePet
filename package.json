@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Roman9961/SafePet#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "magnific-popup": "^1.1.0"
   }
 }
