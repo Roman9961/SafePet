@@ -44,7 +44,7 @@ function send_mail($to,$subject,$message,$name){
     $mail->isSMTP();
     $mail->Host = '127.0.0.1';
     $mail->Port = 25;
-    $mail->setFrom('romanrimskiy@gmail.com', 'SafePet');
+    $mail->setFrom('support@ucell.com.ua', 'SafePet');
     $mail->addAddress($to, $name);
     $mail->Subject = $subject;
     $mail->Body    = $message;
