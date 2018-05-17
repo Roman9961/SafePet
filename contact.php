@@ -145,7 +145,7 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
             </tr>
             <tr style="height: 32px;">
               <th align="right" style="width:150px; padding-right:5px;">Цвет ошейника:</th>
-              <td align="left" style="padding-left:5px; line-height: 20px;">'. $color .'</td>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $colors[$color] .'</td>
             </tr>
              <tr style="height: 32px;">
               <th align="right" style="width:150px; padding-right:5px;">Способ оплаты:</th>
