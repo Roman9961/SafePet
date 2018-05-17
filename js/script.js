@@ -324,6 +324,8 @@ $(document).ready(function() {
                 },
                 type: 'POST',
                 success: function(data) {
+                    fbq('trackCustom', 'Buy');
+                    gtag('event', 'Buy', {'event_category': 'buy'});
                     button.attr('disabled', false);
                     $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");
                     $("#Name").val("");
