@@ -158,7 +158,7 @@ $app = require('config/config.php');
                             <p>Ваш питомец всегда с вами - ошейник с контактами хозяина.</p>
                             <div class="download-btn">
                                 <!-- BUTTON -->
-                                <a class="btn home-btn wow fadeInLeft" href="#BUY" onclick="Authorization()">Купить</a>
+                                <a class="btn home-btn wow fadeInLeft" href="#BUY" onclick="BuyLead()">Купить</a>
                                 <a class="tuor btn wow fadeInRight" href="#FEATURES">Узнать больше <i class="fa fa-angle-down"></i></a>
                             </div>
                         </div>
