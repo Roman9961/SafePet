@@ -134,7 +134,7 @@ $app = require('config/config.php');
                             <li><a href="#FEATURES">Преимущества</a></li>
                             <li><a href="#SCREENS">Фото продукта</a> </li>
                             <li><a href="#PRICE">Цена и доставка </a> </li>
-                            <li><a href="#BUY">Купить</a> </li>
+                            <li><a href="#BUY" onclick="BuyLead()">Купить</a> </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
