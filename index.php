@@ -10,6 +10,7 @@ $app = require('config/config.php');
 -->
 
 <head>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
     <?php
     if(isset($app['ga'])){
         $script =
@@ -441,7 +442,7 @@ $app = require('config/config.php');
                                </div>
                             <div class="col-md-12">
                                 <div style="padding-bottom: 15px" id="recaptcha1">
-                                    <div class="g-recaptcha " data-sitekey= "<?php  echo $app['captcha'] ?>"></div>
+<!--                                    <div class="g-recaptcha " data-sitekey= "--><?php // echo $app['captcha'] ?><!--"></div>-->
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -580,6 +581,15 @@ $app = require('config/config.php');
     <script src="node_modules/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script src="js/script.js"></script>
     <script>
+        var onloadCallback = function() {
+            mysitekey = '<?php  echo $app['captcha'] ?>';
+            grecaptcha.render('recaptcha2', {
+                'sitekey' : mysitekey
+            });
+            grecaptcha.render('recaptcha1', {
+                'sitekey' : mysitekey
+            });
+        };
         var openPopup = function (selector) {
             $.magnificPopup.open({
                 items: {
@@ -589,24 +599,6 @@ $app = require('config/config.php');
                 callbacks: {
                     open: function () {
                         $('.mfp-content').addClass('animated bounceIn');
-                        grecaptcha.reset();
-                        $('#recaptcha1').html('');
-                        mysitekey = '<?php  echo $app['captcha'] ?>';
-                        grecaptcha.render('recaptcha2', {
-                            'sitekey' : mysitekey
-                        });
-
-
-
-                    },
-                    close: function () {
-                        grecaptcha.reset();
-                        $('#recaptcha2').html('');
-                        mysitekey = '<?php  echo $app['captcha'] ?>';
-                        grecaptcha.render('recaptcha1', {
-                            'sitekey' : mysitekey
-                        });
-
                     }
                 }
             });
