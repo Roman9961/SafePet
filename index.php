@@ -328,6 +328,9 @@ $app = require('config/config.php');
                     <div class="item">
                         <a href="images/foto4.png" rel="prettyPhoto[pp_gal]"><img src="images/foto4.jpg" width="60" height="60" alt="APPS SCREEN" /></a>
                     </div>
+                    <div class="item">
+                        <a href="images/bulldog_collar_500p_down.jpg" rel="prettyPhoto[pp_gal]"><img src="images/bulldog_collar_500p_down.jpg" width="60" height="60" alt="APPS SCREEN" /></a>
+                    </div>
                 </div>
             </div>
         </div>
