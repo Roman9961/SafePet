@@ -158,7 +158,7 @@ $app = require('config/config.php');
                             <p>Ваш питомец всегда с вами - ошейник с контактами хозяина.</p>
                             <div class="download-btn">
                                 <!-- BUTTON -->
-                                <a class="btn home-btn wow fadeInLeft" href="#BUY" onclick="BuyLead()">Купить</a>
+                                <a class="btn home-btn wow fadeInLeft" href="javascript:void(0);" onclick="oneClickOrder(event)">Купить в один клик</a>
                                 <a class="tuor btn wow fadeInRight" href="#FEATURES">Узнать больше <i class="fa fa-angle-down"></i></a>
                             </div>
                         </div>
@@ -396,6 +396,7 @@ $app = require('config/config.php');
                         <div class="email_val_error hide error">Введите корректный Email</div>
                         <div class="pet_name_error hide error">Введите кличку Вашего питомца</div>
                         <div class="phone_error hide error">Введите номер телефона хозяина питомца</div>
+                        <div class="phone_error_quick_order hide error">Введите номер телефона</div>
                     </div>
                     <div class="Sucess white-popup mfp-hide"></div>
                 <!-- END ERROR AND SUCCESS MESSAGE -->
@@ -509,7 +510,27 @@ $app = require('config/config.php');
         </table>
     </div>
 
+    <div id="one_click_order" class="white-popup mfp-hide" style="padding: 30px">
+        <div class="row">
+        <div class="col-md-4 col-md-offset-4" style="background-color: white; padding: 15px;">
+        <form role="form" action="contact.php">
+            <div class="form-group">
+                <input type="number" class="form-control" id="phone_quick" placeholder="Номер телефона" style="height: 76px; font-size: 28px">
+                <input type="hidden" class="form-control" id="quick_form" value="quick_order">
+            </div>
 
+            <div class="row">
+                <div  class="col-md-6">
+                    <div class="g-recaptcha " data-sitekey= "<?php  echo $app['captcha'] ?>"></div>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-default submit-btn form_submit" style="height: 76px;">Купить</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        </div>
+    </div>
 <!-- =========================
      FOOTER 
 ============================== -->
@@ -543,12 +564,7 @@ $app = require('config/config.php');
      SCRIPTS 
 ============================== -->
 
-    <script>
-        function BuyLead() {
-            fbq('trackCustom', 'BuyLead');
-            gtag('event', 'BuyLead', {'event_category': 'buy'});
-        };
-    </script>
+
     <script src="js/jquery.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/node_modules/owl.carousel2/dist/owl.carousel.min.js"></script>
@@ -563,7 +579,35 @@ $app = require('config/config.php');
     <script src="js/jquery.counterup.min.js"></script>
     <script src="node_modules/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        var openPopup = function (selector) {
+            $.magnificPopup.open({
+                items: {
+                    src:  selector,
+                },
+                type:'inline',
+                callbacks: {
+                    open: function () {
+                        $('.mfp-content').addClass('animated bounceIn');
+                    }
+                }
+            });
+        };
 
+        function BuyLead(e) {
+            e.preventDefault();
+            openPopup($("#one_click_order"));
+            fbq('trackCustom', 'BuyLead');
+            gtag('event', 'BuyLead', {'event_category': 'buy'});
+        };
+
+        function oneClickOrder(e) {
+            e.preventDefault();
+            openPopup($("#one_click_order"));
+            fbq('trackCustom', 'BuyLead');
+            gtag('event', 'BuyLead', {'event_category': 'buy'});
+        };
+    </script>
 
 </body>
 </html>

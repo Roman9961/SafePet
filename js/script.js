@@ -264,27 +264,33 @@ $(document).ready(function() {
         var name = $("#name").val();
         var emaild = $("#email").val();
         var phone = $("#phone").val();
+        var phoneQuick = $("#phone_quick").val();
         var pay = $("#sel1").val();
         var color = $("#color").val();
         var size = $("#size").val();
+        var quickOrder = $("#quick_form").val() == 'quick_order';
         var petName = $("#petName").val();
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var button =$(this);
-        if (!name) {
+        if(phoneQuick){
+            phone = phoneQuick;
+        }
+        console.log(quickOrder);
+        if (!name&&!quickOrder) {
             $(".form_error .name_error").addClass("show").removeClass("hide");
             openPopup($(".form_error"));
             return false;
         } else {
             $(".form_error .name_error").addClass("hide").removeClass("show");
         }
-        if (!emaild) {
+        if (!emaild&&!quickOrder) {
             $(".form_error .email_error").addClass("show").removeClass("hide");
             openPopup($(".form_error"));
             return false;
         } else {
             $(".form_error .email_error").addClass("hide").removeClass("show");
-            if (testEmail.test(emaild)) {
+            if (testEmail.test(emaild) || quickOrder) {
                 $(".form_error .email_val_error").addClass("hide").removeClass("show");
             } else {
                 $(".form_error .email_val_error").addClass("show").removeClass("hide");
@@ -293,13 +299,18 @@ $(document).ready(function() {
             }
         }
         if (!phone) {
-            $(".form_error .phone_error").addClass("show").removeClass("hide");
+            if(quickOrder){
+                $(".form_error .phone_error_quick_order").addClass("show").removeClass("hide");
+            }else{
+                $(".form_error .phone_error").addClass("show").removeClass("hide");
+            }
             openPopup($(".form_error"));
             return false;
         } else {
             $(".form_error .phone_error").addClass("hide").removeClass("show");
+            $(".form_error .phone_error_quick_order").addClass("hide").removeClass("show");
         }
-        if (!petName) {
+        if (!petName&&!quickOrder) {
             $(".form_error .pet_name_error").addClass("show").removeClass("hide");
             openPopup($(".form_error"));
             return false;
@@ -307,27 +318,39 @@ $(document).ready(function() {
             $(".form_error .pet_name_error").addClass("hide").removeClass("show");
         }
 
-        if (name && emaild && petName && phone) {
+        if ((quickOrder && phone) || (!quickOrder&& name && emaild && petName && phone)) {
             button.attr('disabled', true);
             openPopup($(".mail-loader"));
+            var data = {
+                name,
+                mail: emaild,
+                petName,
+                pay,
+                phone,
+                color,
+                size,
+                messageForm: message
+            };
+            if(quickOrder){
+                data = {
+                    phone,
+                    quickOrder
+                };
+            }
             $.ajax({
                 url: 'contact.php',
-                data: {
-                    name,
-                    mail: emaild,
-                    petName,
-                    pay,
-                    phone,
-                    color,
-                    size,
-                    messageForm: message
-                },
+                data: data,
                 type: 'POST',
                 success: function(data) {
+                    console.log(data);
                     fbq('trackCustom', 'Buy');
                     gtag('event', 'Buy', {'event_category': 'buy'});
                     button.attr('disabled', false);
-                    $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");
+                    if(quickOrder){
+                        $(".Sucess").html("<i class='fa fa-check'></i> Спасибо за размещение заявки, ожидайте, скоро с Вами свяжутся для уточнения деталей.");
+                    }else {
+                        $(".Sucess").html("<i class='fa fa-check'></i> Уважаемый <b>" + name + "</b> Спасибо за размещение заказа, мы отправили вам письмо-подтверждение на электронную почту.");
+                    }
                     $("#Name").val("");
                     $("#Email").val("");
                     $("#Subject").val("");

@@ -61,7 +61,7 @@ function send_mail($to,$subject,$message,$name, $user, $password){
 }
 
 //Get data form and send mail
-if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm'])){
+if(isset($_POST['name']) and isset($_POST['mail'])  and !isset($_POST['quickOrder'])){
     $name = $_POST['name'];
     $mail = $_POST['mail'];
     $phone = $_POST['phone'];
@@ -201,7 +201,62 @@ if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['messageForm
         send_mail($to,$subject,$storeMessage,$name, $config['mail_user'], $config['mail_password']);
         send_mail($mail,$subjectClient,$clientMessage,$name, $config['mail_user'], $config['mail_password']);
     }
-} else {
+}
+elseif ( isset($_POST['quickOrder']) and isset($_POST['phone'])){
+
+    $phone = $_POST['phone'];
+
+    $cdb = new crunchDB('./data/');
+    $tables = $cdb->tables();
+    end($tables);
+
+    $tableId = key($tables)?key($tables):0;
+
+    if($cdb->table('orders_'.$tableId)->exists()) {
+        if ($cdb->table('orders_' . $tableId)->count() >= 1000) {
+            $tableId++;
+        }
+    }
+    if(!$cdb->table('orders_'.$tableId)->exists()){
+        $cdb->table('orders_'.$tableId)->create();
+    }
+
+    $id = ($tableId*1000) + $cdb->table('orders_'.$tableId)->count() + 1;
+    $date = new DateTime('now');
+    $order = array('id'=>$id, 'name'=>'', 'phone'=>$phone, 'mail'=>'', 'comment'=>'', 'pet'=>'', 'size'=>'', 'color'=>'', 'payway'=>'', 'date'=>$date->getTimestamp());
+
+    $cdb->table('orders_'.$tableId)->insert($order);
+
+    $to = __TO__;
+    $subject = 'Заказ №'.$id ;
+    $storeMessage = '
+        <html>
+        <head>
+          <title>One click Order</title>
+        </head>
+        <body>
+            Заказ в один клик:
+          <table style="width: 500px; font-family: arial; font-size: 14px;" border="1">
+          <tr style="height: 32px;">
+              <th align="right" style="width:150px; padding-right:5px;">Order Id:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $id .'</td>
+            </tr>
+           
+            <tr style="height: 32px;">
+              <th align="right" style="width:150px; padding-right:5px;">Телефон:</th>
+              <td align="left" style="padding-left:5px; line-height: 20px;">'. $phone .'</td>
+            </tr>
+          </table>
+        </body>
+        </html>
+        ';
+
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+    send_mail($to,$subject,$storeMessage,'', $config['mail_user'], $config['mail_password']);
+}
+else {
     echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FIELDS__));
 }
  ?>
