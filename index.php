@@ -440,7 +440,7 @@ $app = require('config/config.php');
                                 <textarea class="form-control" id="message" rows="25" cols="10" placeholder="Комментарии к заказу"></textarea>
                                </div>
                             <div class="col-md-12">
-                                <div style="padding-bottom: 15px">
+                                <div style="padding-bottom: 15px" id="recaptcha1">
                                     <div class="g-recaptcha " data-sitekey= "<?php  echo $app['captcha'] ?>"></div>
                                 </div>
                             </div>
@@ -520,8 +520,8 @@ $app = require('config/config.php');
             </div>
 
             <div class="row">
-                <div  class="col-md-6">
-                    <div class="g-recaptcha" data-sitekey= "<?php  echo $app['captcha'] ?>"></div>
+                <div  class="col-md-6" id="recaptcha2">
+
                 </div>
                 <div class="col-md-6">
                     <button type="button" class="btn btn-default submit-btn form_submit" style="height: 76px;">Купить</button>
@@ -589,6 +589,15 @@ $app = require('config/config.php');
                 callbacks: {
                     open: function () {
                         $('.mfp-content').addClass('animated bounceIn');
+                        var recaptcha1 = $('#recaptcha1').html();
+                        $('#recaptcha2').html(recaptcha1);
+                        $('#recaptcha1').html('');
+                    },
+                    close: function () {
+                        var recaptcha1 = $('#recaptcha1').html();
+                        if(recaptcha1===''){
+                            $('#recaptcha1').html($('#recaptcha2').html())
+                        }
                     }
                 }
             });
@@ -603,6 +612,7 @@ $app = require('config/config.php');
 
         function oneClickOrder(e) {
             e.preventDefault();
+
             openPopup($("#one_click_order"));
             fbq('trackCustom', 'BuyLead');
             gtag('event', 'BuyLead', {'event_category': 'buy'});
