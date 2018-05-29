@@ -247,32 +247,40 @@ $(document).ready(function() {
             }
         });
     };
+    $('#quick_order').on('submit', function () {
+        $('#quick_form').val('quick_order');
+    })
     $(".form_submit").click(function() {
 
         "use strict";
         var recaptcha = $("#g-recaptcha-response").val();
 
-        if (recaptcha === "") {
-            event.preventDefault();
-            $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
-            openPopup($(".form_error"));
-            return false;
-        }else{
-            $(".form_error .recaptcha_val_error").addClass("hide").removeClass("show");
-        }
+        // if (recaptcha === "") {
+        //     event.preventDefault();
+        //     $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
+        //     openPopup($(".form_error"));
+        //     return false;
+        // }else{
+        //     $(".form_error .recaptcha_val_error").addClass("hide").removeClass("show");
+        // }
 
         var name = $("#name").val();
         var emaild = $("#email").val();
         var phone = $("#phone").val();
-        var phoneQuick = $("#phone_quick").val();
+        var phoneQuick = false;
         var pay = $("#sel1").val();
         var color = $("#color").val();
         var size = $("#size").val();
-        var quickOrder = $("#quick_form").val() == 'quick_order';
+        var quickOrder =  false;
         var petName = $("#petName").val();
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var button =$(this);
+        console.log($(this).closest('form').attr('id'));
+        if($(this).closest('form').attr('id')=='quick_order'){
+             phoneQuick = $("#phone_quick").val();
+             quickOrder =  $("#quick_form").val() == 'quick_order';
+        }
         if(phoneQuick){
             phone = phoneQuick;
         }

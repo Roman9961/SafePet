@@ -513,7 +513,7 @@ $app = require('config/config.php');
     <div id="one_click_order" class="white-popup mfp-hide" style="padding: 30px">
         <div class="row">
         <div class="col-md-4 col-md-offset-4" style="background-color: white; padding: 15px;">
-        <form role="form" action="contact.php">
+        <form id="quick_order" role="form" action="contact.php">
             <div class="form-group">
                 <input type="number" class="form-control" id="phone_quick" placeholder="Номер телефона" style="height: 76px; font-size: 28px">
                 <input type="hidden" class="form-control" id="quick_form" value="quick_order">
@@ -589,22 +589,12 @@ $app = require('config/config.php');
                 callbacks: {
                     open: function () {
                         $('.mfp-content').addClass('animated bounceIn');
-                        $('#recaptcha1').html('');
-                        mysitekey = '<?php  echo $app['captcha'] ?>';
-                        grecaptcha.render('recaptcha2', {
-                            'sitekey' : mysitekey
-                        });
-                        grecaptcha.render('recaptcha2', {
-                            'sitekey' : mysitekey
-                        });
-
-                    },
-                    close: function () {
-                        $('#recaptcha2').html('');
-                        mysitekey = '<?php  echo $app['captcha'] ?>';
-                        grecaptcha.render('recaptcha1', {
-                            'sitekey' : mysitekey
-                        });
+                        if($('#recaptcha2').html()=='') {
+                            mysitekey = '<?php  echo $app['captcha'] ?>';
+                            grecaptcha.render('recaptcha2', {
+                                'sitekey': mysitekey
+                            });
+                        }
                     }
                 }
             });
