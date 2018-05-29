@@ -596,7 +596,7 @@ $app = require('config/config.php');
                         });
                     },
                     close: function () {
-                        $('#recaptcha2').html('');
+
                         mysitekey = '<?php  echo $app['captcha'] ?>';
                         grecaptcha.render('recaptcha1', {
                             'sitekey' : mysitekey
