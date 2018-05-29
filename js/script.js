@@ -250,7 +250,7 @@ $(document).ready(function() {
     $(".form_submit").click(function() {
 
         "use strict";
-        var recaptcha = $("#g-recaptcha-response").val();
+        var recaptcha = $("#g-recaptcha-response").first().val();
 
         if (recaptcha === "") {
             event.preventDefault();

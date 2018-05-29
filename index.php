@@ -521,7 +521,7 @@ $app = require('config/config.php');
 
             <div class="row">
                 <div  class="col-md-6">
-                    <div class="g-recaptcha " data-sitekey= "<?php  echo $app['captcha'] ?>"></div>
+                    <div class="g-recaptcha" data-sitekey= "<?php  echo $app['captcha'] ?>"></div>
                 </div>
                 <div class="col-md-6">
                     <button type="button" class="btn btn-default submit-btn form_submit" style="height: 76px;">Купить</button>
