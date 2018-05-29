@@ -520,7 +520,9 @@ $app = require('config/config.php');
             </div>
 
             <div class="row">
-                <div  class="col-md-6" id="recaptcha2"></div>
+                <div  class="col-md-6" id="recaptcha2">
+
+                </div>
                 <div class="col-md-6">
                     <button type="button" class="btn btn-default submit-btn form_submit" style="height: 76px;">Купить</button>
                 </div>
@@ -587,12 +589,18 @@ $app = require('config/config.php');
                 callbacks: {
                     open: function () {
                         $('.mfp-content').addClass('animated bounceIn');
-                        if($('#recaptcha2').html()=='') {
-                            mysitekey = '<?php  echo $app['captcha'] ?>';
-                            grecaptcha.render('recaptcha2', {
-                                'sitekey': mysitekey
-                            });
-                        }
+                        $('#recaptcha1').html('');
+                        mysitekey = '<?php  echo $app['captcha'] ?>';
+                        grecaptcha.render('recaptcha2', {
+                            'sitekey' : mysitekey
+                        });
+                    },
+                    close: function () {
+                        $('#recaptcha2').html('');
+                        mysitekey = '<?php  echo $app['captcha'] ?>';
+                        grecaptcha.render('recaptcha1', {
+                            'sitekey' : mysitekey
+                        });
                     }
                 }
             });
