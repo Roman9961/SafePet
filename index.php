@@ -590,10 +590,12 @@ $app = require('config/config.php');
                     open: function () {
                         $('.mfp-content').addClass('animated bounceIn');
                         $('#recaptcha1').html('');
-                        mysitekey = '<?php  echo $app['captcha'] ?>';
-                        grecaptcha.render('recaptcha2', {
-                            'sitekey' : mysitekey
-                        });
+                        if($('#recaptcha2').html()=='') {
+                            mysitekey = '<?php  echo $app['captcha'] ?>';
+                            grecaptcha.render('recaptcha2', {
+                                'sitekey': mysitekey
+                            });
+                        }
                     },
                     close: function () {
 
