@@ -603,16 +603,13 @@ $app = require('config/config.php');
             });
         };
 
-        function BuyLead(e) {
-            e.preventDefault();
-            openPopup($("#one_click_order"));
+        function BuyLead() {
             fbq('trackCustom', 'BuyLead');
             gtag('event', 'BuyLead', {'event_category': 'buy'});
         };
 
         function oneClickOrder(e) {
             e.preventDefault();
-
             openPopup($("#one_click_order"));
             fbq('trackCustom', 'BuyLead');
             gtag('event', 'BuyLead', {'event_category': 'buy'});
