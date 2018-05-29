@@ -247,9 +247,7 @@ $(document).ready(function() {
             }
         });
     };
-    $('#quick_order').on('submit', function () {
-        $('#quick_form').val('quick_order');
-    })
+
     $(".form_submit").click(function() {
 
         "use strict";
