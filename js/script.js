@@ -250,16 +250,6 @@ $(document).ready(function() {
     $(".form_submit").click(function() {
 
         "use strict";
-        var recaptcha = $("#g-recaptcha-response").first().val();
-
-        if (recaptcha === "") {
-            event.preventDefault();
-            $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
-            openPopup($(".form_error"));
-            return false;
-        }else{
-            $(".form_error .recaptcha_val_error").addClass("hide").removeClass("show");
-        }
 
         var name = $("#name").val();
         var emaild = $("#email").val();
@@ -273,9 +263,22 @@ $(document).ready(function() {
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var button =$(this);
+
+        var recaptcha = $("#g-recaptcha-response").first().val();
+
         if(phoneQuick){
             phone = phoneQuick;
+            var recaptcha = $("#g-recaptcha-response").last().val();
         }
+        if (recaptcha === "") {
+            event.preventDefault();
+            $(".form_error .recaptcha_val_error").addClass("show").removeClass("hide");
+            openPopup($(".form_error"));
+            return false;
+        }else{
+            $(".form_error .recaptcha_val_error").addClass("hide").removeClass("show");
+        }
+
         console.log(quickOrder);
         if (!name&&!quickOrder) {
             $(".form_error .name_error").addClass("show").removeClass("hide");
