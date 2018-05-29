@@ -442,7 +442,6 @@ $app = require('config/config.php');
                                </div>
                             <div class="col-md-12">
                                 <div style="padding-bottom: 15px" id="recaptcha1">
-<!--                                    <div class="g-recaptcha " data-sitekey= "--><?php // echo $app['captcha'] ?><!--"></div>-->
                                 </div>
                             </div>
                             <div class="col-md-12">

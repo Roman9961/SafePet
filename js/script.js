@@ -276,7 +276,6 @@ $(document).ready(function() {
         var message = $("#message").val();
         var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var button =$(this);
-        console.log($(this).closest('form').attr('id'));
         if($(this).closest('form').attr('id')=='quick_order'){
              phoneQuick = $("#phone_quick").val();
              quickOrder =  $("#quick_form").val() == 'quick_order';
@@ -284,7 +283,6 @@ $(document).ready(function() {
         if(phoneQuick){
             phone = phoneQuick;
         }
-        console.log(quickOrder);
         if (!name&&!quickOrder) {
             $(".form_error .name_error").addClass("show").removeClass("hide");
             openPopup($(".form_error"));
@@ -350,8 +348,6 @@ $(document).ready(function() {
                 data: data,
                 type: 'POST',
                 success: function(data) {
-
-
                     fbq('trackCustom', 'Buy');
                     gtag('event', 'Buy', {'event_category': 'buy'});
                     button.attr('disabled', false);
