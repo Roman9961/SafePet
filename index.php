@@ -589,15 +589,21 @@ $app = require('config/config.php');
                 callbacks: {
                     open: function () {
                         $('.mfp-content').addClass('animated bounceIn');
-                        var recaptcha1 = $('#recaptcha1').html();
-                        $('#recaptcha2').html(recaptcha1);
+                        mysitekey = '<?php  echo $app['captcha'] ?>';
+                        grecaptcha.render('recaptcha2', {
+                            'sitekey' : mysitekey
+                        });
+                        grecaptcha.render('recaptcha2', {
+                            'sitekey' : mysitekey
+                        });
                         $('#recaptcha1').html('');
                     },
                     close: function () {
-                        var recaptcha1 = $('#recaptcha1').html();
-                        if(recaptcha1===''){
-                            $('#recaptcha1').html($('#recaptcha2').html())
-                        }
+                        $('#recaptcha2').html('');
+                        mysitekey = '<?php  echo $app['captcha'] ?>';
+                        grecaptcha.render('recaptcha1', {
+                            'sitekey' : mysitekey
+                        });
                     }
                 }
             });
