@@ -520,9 +520,7 @@ $app = require('config/config.php');
             </div>
 
             <div class="row">
-                <div  class="col-md-6" id="recaptcha2">
-
-                </div>
+                <div  class="col-md-6" id="recaptcha2"></div>
                 <div class="col-md-6">
                     <button type="button" class="btn btn-default submit-btn form_submit" style="height: 76px;">Купить</button>
                 </div>
