@@ -131,6 +131,7 @@ $app = require('config/config.php');
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right" >
                             <!-- NAV -->
+                            <li><a href="tel:+380685217276" style="color:#feda44;font-weight: 900;font-size: 22px;">(068) 521 72 76</a> </li>
                             <li><a href="#HOME">Главная</a> </li>
                             <li><a href="#FEATURES">Преимущества</a></li>
                             <li><a href="#SCREENS">Фото продукта</a> </li>
