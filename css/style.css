@@ -96,7 +96,12 @@ p {
 .navbar-default .navbar-nav>li>a:hover{
     color:#feda44;
 }
+.tel{
+    display:inline-flex;
+    padding: 10px 35px
+}
 @media(min-width:768px) {
+
     .pawprint{
         background: url('../images/pawprint.svg')no-repeat;
         height: 65px;
@@ -489,6 +494,10 @@ div.carousel-inner .item img {
     .features-container{
         width: 1620px;
     }
+    .tel{
+        display:inline-flex;
+        padding: 8px 135px
+    }
 }
 .grid-container{
     display: grid;
@@ -635,6 +644,7 @@ div.carousel-inner .item img {
     padding-right: 15px;
 }
 @media (min-width: 991px) and (max-width: 1200px) {
+
     .right_single_feature {
         margin-left: -60px;
     }
@@ -1087,7 +1097,16 @@ div.carousel-inner .item img {
     color: #fff;
     border-color: #feda44;
 }
-@media (min-width: 300px) {
+@media (max-width: 404px) {
+    .tel{
+        display:inline-flex;
+        padding: 10px 0px
+    }
+    .tel a{
+        font-size: 19px !important;
+    }
+}
+@media (min-width: 320px) {
     .subscribe_form .form-control {
         width: 100%
     }

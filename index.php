@@ -119,6 +119,7 @@ $app = require('config/config.php');
                     <a class="navbar-brand" href="#" style="height: 100%;">
                         <div class="headerLogo"></div>
                     </a>
+                        <div class="tel"><a href="tel:+380685217276" style="color:#feda44;font-weight: 900;font-size: 22px;">(068) 521 72 76</a></div>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
@@ -131,7 +132,6 @@ $app = require('config/config.php');
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right" >
                             <!-- NAV -->
-                            <li><a href="tel:+380685217276" style="color:#feda44;font-weight: 900;font-size: 22px;">(068) 521 72 76</a> </li>
                             <li><a href="#HOME">Главная</a> </li>
                             <li><a href="#FEATURES">Преимущества</a></li>
                             <li><a href="#SCREENS">Фото продукта</a> </li>
