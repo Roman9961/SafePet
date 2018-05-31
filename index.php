@@ -611,8 +611,8 @@ $app = require('config/config.php');
         function oneClickOrder(e) {
             e.preventDefault();
             openPopup($("#one_click_order"));
-            fbq('trackCustom', 'Buy1Click');
-            gtag('event', 'Buy1Click', {'event_category': 'buy'});
+            fbq('trackCustom', 'BuyLead');
+            gtag('event', 'BuyLead', {'event_category': 'buy'});
         };
     </script>
 

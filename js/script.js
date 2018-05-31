@@ -346,8 +346,13 @@ $(document).ready(function() {
                 data: data,
                 type: 'POST',
                 success: function(data) {
-                    fbq('trackCustom', 'Buy');
-                    gtag('event', 'Buy', {'event_category': 'buy'});
+                    if(quickOrder){
+                        fbq('trackCustom', 'Buy1Click');
+                        gtag('event', 'Buy1Click', {'event_category': 'buy'});
+                    }else {
+                        fbq('trackCustom', 'Buy');
+                        gtag('event', 'Buy', {'event_category': 'buy'});
+                    }
                     button.attr('disabled', false);
                     if(quickOrder){
                         $(".Sucess").html("<i class='fa fa-check'></i> Спасибо за размещение заявки, ожидайте, скоро с Вами свяжутся для уточнения деталей.");
