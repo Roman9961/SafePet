@@ -77,7 +77,7 @@ $app = require('config/config.php');
     <link href="node_modules/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<!--    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />-->
 
     <!-- Style -->
     <link href="css/style.css" rel="stylesheet">
